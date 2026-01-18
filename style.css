@@ -109,9 +109,31 @@ h1 {
 }
 
 /*some code to improve look on mobile devices */
+
+@media (max-width: 500px) {
+  #bigDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: yellow;
+    font-size: 1em;
+    text-shadow: 3px 1px 2px black;
+  }
+}
+
 @media (max-width: 500px) {
   .card {
     flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .h1 {
+    font-size: 2em;
+    text-align: center;
+    color: yellow;
   }
 }
 
@@ -130,53 +152,7 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  .large-image {
-    display: none;
-  }
-}
-
-.large-image img {
-  padding: 10px;
-
-  border: 1px solid #ccc;
-}
-
-figure {
-  margin: 0;
-
-  padding: 0;
-}
-
-figcaption {
-  padding: 5px 0 15px 0;
-}
-
-.thumbnail-wrapper {
-  display: flex;
-
-  justify-content: space-between;
-
-  flex-wrap: wrap;
-}
-
-.thumbnail {
-  width: 24%;
-
-  height: auto;
-}
-
-@media screen and (max-width: 480px) {
   .thumbnail {
     width: 100%;
-  }
-}
-
-.thumbnail figcaption {
-  display: none;
-}
-
-@media screen and (max-width: 480px) {
-  .thumbnail figcaption {
-    display: block;
   }
 }
