@@ -1,0 +1,193 @@
+body {
+  background-image: url("https://pbs.twimg.com/media/F3Q0yS6XUAA0s1o.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bigDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: yellow;
+  font-size: 3em;
+  text-shadow: 3px 1px 2px black;
+}
+
+.carousel {
+  height: 20vh;
+  margin: 3em auto;
+  display: flex;
+  gap: 1em;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  anchor-name: --carousel;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after;
+}
+
+.carousel::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  position: static;
+  flex-direction: row;
+  padding: 2px;
+  min-height: 30px;
+}
+
+.card::scroll-marker {
+  content: " ";
+  height: 1em;
+  width: 1em;
+  background-color: purple;
+  border-radius: 50%;
+  padding: 10px;
+  min-height: 20px;
+}
+
+.card::scroll-marker:target-current {
+  background-color: yellow;
+}
+
+/* removes scrollbar function*/
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel::scroll-button(right),
+.carousel::scroll-button(left) {
+  content: ">";
+  border: none;
+  background-color: purple; /*or  var(--brand-color) */
+  font-family: Consolas;
+  font-size: 3rem;
+  color: black;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding-bottom: 0.1em;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --carousel;
+  position-area: right bottom;
+  translate: -150%;
+}
+
+.carousel::scroll-button(left) {
+  content: "<";
+  position-anchor: --carousel;
+  position-area: left bottom;
+  translate: 150%;
+}
+/* start with the buttons in a disabled, i.e greyed out if you cant move state */
+.carousel::scroll-button(right):disabled,
+.carousel::scroll-button(left):disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.card {
+  scroll-snap-align: start;
+  flex: 0 0 20em;
+  height: 12em;
+  aspect-ratio: 5 / 3; /* or aspect-ration: 5 / 3; */
+  background-color: var(--primary-color);
+  padding: 1em;
+  border-radius: 0.5em;
+  text-align: center;
+  align-content: center;
+}
+
+@media (max-width: 500px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+
+.gallery-wrapper {
+
+width: 90%;
+
+}
+
+}
+
+@media screen and (max-width: 480px) {
+
+.large-image {
+
+display: none;
+
+}
+
+}
+
+.large-image img {
+
+padding: 10px;
+
+border: 1px solid #ccc;
+
+}
+
+figure {
+
+margin: 0;
+
+padding: 0;
+
+}
+
+figcaption {
+
+padding: 5px 0 15px 0;
+
+}
+
+.thumbnail-wrapper {
+
+display: flex;
+
+justify-content: space-between;
+
+flex-wrap: wrap;
+
+}
+
+.thumbnail {
+
+width: 24%;
+
+height: auto;
+
+}
+
+@media screen and (max-width: 480px) {
+
+.thumbnail {
+
+width: 100%;
+
+}
+
+}
+
+.thumbnail figcaption {
+
+display: none;
+
+}
+
+@media screen and (max-width: 480px) {
+
+.thumbnail figcaption {
+
+display: block;
+
+*/
