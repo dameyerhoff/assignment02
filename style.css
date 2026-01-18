@@ -5,6 +5,11 @@ body {
   background-size: cover;
 }
 
+h1 {
+  text-align: center;
+  color: yellow;
+}
+
 #bigDisplay {
   display: flex;
   flex-direction: column;
@@ -108,86 +113,60 @@ body {
   }
 }
 
-/* @media screen and (max-width: 768px) {
-
-.gallery-wrapper {
-
-width: 90%;
-
-}
-
+@media screen and (max-width: 768px) {
+  .gallery-wrapper {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 480px) {
-
-.large-image {
-
-display: none;
-
-}
-
+  .large-image {
+    display: none;
+  }
 }
 
 .large-image img {
+  padding: 10px;
 
-padding: 10px;
-
-border: 1px solid #ccc;
-
+  border: 1px solid #ccc;
 }
 
 figure {
+  margin: 0;
 
-margin: 0;
-
-padding: 0;
-
+  padding: 0;
 }
 
 figcaption {
-
-padding: 5px 0 15px 0;
-
+  padding: 5px 0 15px 0;
 }
 
 .thumbnail-wrapper {
+  display: flex;
 
-display: flex;
+  justify-content: space-between;
 
-justify-content: space-between;
-
-flex-wrap: wrap;
-
+  flex-wrap: wrap;
 }
 
 .thumbnail {
+  width: 24%;
 
-width: 24%;
-
-height: auto;
-
+  height: auto;
 }
 
 @media screen and (max-width: 480px) {
-
-.thumbnail {
-
-width: 100%;
-
-}
-
+  .thumbnail {
+    width: 100%;
+  }
 }
 
 .thumbnail figcaption {
-
-display: none;
-
+  display: none;
 }
 
 @media screen and (max-width: 480px) {
-
-.thumbnail figcaption {
-
-display: block;
-
-*/
+  .thumbnail figcaption {
+    display: block;
+  }
+}
