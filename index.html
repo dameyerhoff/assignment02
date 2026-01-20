@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header><h1>Click an image below to enlarge it!</h1></header>
-    <div id="carousel" class="carousel"></div>
+    <div id="thumbnailsContainer" class="thumbnails-container"></div>
 
-    <div id="bigDisplay"></div>
+    <div id="bigContainer" class="big-container" aria-live="assertive"></div>
+
+    <button class="toggle" id="toggle">^</button>
+
+    <div class="buttons">
+      <button id="leftBtn" aria-label="Previous image">&lt;</button>
+      <!-- this &lt and &gt is ampersand for less than, and greater than. using this looks a lot better than using <> keys as it looks ugly and could confuse the code-->
+      <button id="rightBtn" aria-label="Next image">&gt;</button>
+    </div>
   </body>
 </html>

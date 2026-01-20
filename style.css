@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("https://pbs.twimg.com/media/F3Q0yS6XUAA0s1o.jpg");
   background-attachment: fixed;
@@ -5,154 +11,81 @@ body {
   background-size: cover;
 }
 
-h1 {
-  text-align: center;
-  color: yellow;
-  text-shadow: 3px 1px 2px black;
+/* step 1. give the thumbs a new height */
+.thumb {
+  height: 15vh;
 }
 
-#bigDisplay {
+.thumbnails-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  color: yellow;
-  font-size: 3em;
-  text-shadow: 3px 1px 2px black;
-}
-
-.carousel {
-  height: 20vh;
-  margin: 3em auto;
-  display: flex;
-  gap: 1em;
-  width: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  anchor-name: --carousel;
-  scroll-snap-type: x mandatory;
-  scroll-marker-group: after;
-}
-
-.carousel::scroll-marker-group {
-  display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  position: static;
-  flex-direction: row;
-  padding: 2px;
-  min-height: 30px;
-}
-
-.card::scroll-marker {
-  content: " ";
-  height: 1em;
-  width: 1em;
+  width: 80vw;
   background-color: purple;
-  border-radius: 50%;
   padding: 10px;
-  min-height: 20px;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  margin-block: 50px;
+  align-items: center;
+  bottom: 5vh;
+  height: 17vh;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
-.card::scroll-marker:target-current {
-  background-color: yellow;
+.big-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
-/* removes scrollbar function*/
-.carousel::-webkit-scrollbar {
+.big-image {
+  height: 100vh;
+
+  /* This is another solution to the Mac scrollbar always showing,  however it removes the scrollbar completely - even when you need it (i.e on mobile screens) */
+  /* .thumbnail-container::-webkit-scrollbar {
   display: none;
+} */
+
+  /* These two properties make sure our image takes up the whole container without skewing */
+  object-fit: cover;
+  object-position: left;
+  /* This makes any part of the image that doesn't fit in the container (on smaller screens especially) get cut off */
+  overflow: hidden;
 }
 
-.carousel::scroll-button(right),
-.carousel::scroll-button(left) {
-  content: ">";
-  border: none;
-  background-color: purple; /*or  var(--brand-color) */
-  font-family: Consolas;
-  font-size: 3rem;
-  color: black;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  padding-bottom: 0.1em;
-  cursor: pointer;
-  position: fixed;
-  position-anchor: --carousel;
-  position-area: right bottom;
-  translate: -150%;
+@media (min-width: 800px) {
+  .thumbnails-container {
+    top: 5vh;
+  }
 }
 
-.carousel::scroll-button(left) {
-  content: "<";
-  position-anchor: --carousel;
-  position-area: left bottom;
-  translate: 150%;
-}
-/* start with the buttons in a disabled, i.e greyed out if you cant move state */
-.carousel::scroll-button(right):disabled,
-.carousel::scroll-button(left):disabled {
-  opacity: 0.5;
-  cursor: auto;
+.buttons {
+  position: absolute;
+  display: flex;
+  bottom: 50vh;
+  width: 100vw;
+  justify-content: space-between;
+  padding-inline: 30px;
 }
 
-.card {
-  scroll-snap-align: start;
-  flex: 0 0 20em;
-  height: 12em;
-  aspect-ratio: 5 / 3; /* or aspect-ration: 5 / 3; */
-  background-color: var(--primary-color);
-  padding: 1em;
-  border-radius: 0.5em;
+/* because we didnt give buttons a class - this means any button that is a child of any element with .buttons */
+.buttons button {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: purple;
+}
+
+.toggle {
+  position: absolute;
+  top: 40vh;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: 25px;
   text-align: center;
-  align-content: center;
-}
-
-/*some code to improve look on mobile devices */
-
-@media (max-width: 500px) {
-  #bigDisplay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    color: yellow;
-    font-size: 1em;
-    text-shadow: 3px 1px 2px black;
-  }
-}
-
-@media (max-width: 500px) {
-  .card {
-    flex: 0 0 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .h1 {
-    font-size: 2em;
-    text-align: center;
-    color: yellow;
-  }
-}
-
-@media (max-width: 500px) {
-  .h1 {
-    font-size: 2em;
-    text-align: center;
-    color: yellow;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .gallery-wrapper {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .thumbnail {
-    width: 100%;
-  }
+  background-color: chartreuse;
 }
