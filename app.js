@@ -1,6 +1,6 @@
 // so we are going to make a gallery using javascript. Rather than adding each image seperately onto the index.html (the document) we are going to first create an array of images (as objects) on app.js, and then create a loop function to pull those various image details (objects) from the array. We will then ask the loop function to paste those details inbetween x2 <img> tags (as we would do if we'd typed them manually onto the document itself). Once we have those image tags ready, we will finally send them to a js thumbnails container, which will then share itself with a container on the document side.
 
-// step 1. create a js thumbnails container - called "jsThumbnailsContainer". We will call the recieving (document) container "carousel". Note, you will need to add a div line to the body of the document like so... <div id="carousel" class="carousel"></div>
+// step 1. create a js thumbnails container - called "jsThumbnailsContainer". We will call the recieving (document) container "carousel". Note, you will need to add a div line to the body of the document like so... <div id="thumbnails-container" class="thumbnailsContainer"></div>
 const jsThumbnailsContainer = document.querySelector(".thumbnails-container");
 
 // come back later to understand this line
@@ -56,7 +56,7 @@ const images = [
     className: "thumb",
   },
 ];
-
+// for each method (i find this method harder to understand)
 //function createThumbnails() {
 
 //images.forEach(function (image) {
@@ -105,7 +105,6 @@ function displayBigImage(objectData) {
 
   // this is the beginning of function block now. We tell it to create <img> tags for the large images, and past them onto the document. Remember this line of code is also the documents virtual connection to the javascript side of it.
   const jsBigImage = document.createElement("img");
-
   //and finally we give the function's (imageData) by pulling it's info from the jsBigImage .src and alt
   jsBigImage.src = objectData.src;
   jsBigImage.alt = objectData.alt;
@@ -134,6 +133,8 @@ right.addEventListener("click", () => {
   }
   displayBigImage(images[currentIndex]);
 });
+
+// arrow key functions (scrolling with the left and right buttons)
 
 window.addEventListener("keydown", (event) => {
   console.log(event);
@@ -165,3 +166,7 @@ toggle.addEventListener("click", () => {
     toggle.style.top = "25vh";
   }
 });
+// a bit of debugger practice
+for (let i = 0; i <= 100; i++) {
+  console.log([i]);
+}
